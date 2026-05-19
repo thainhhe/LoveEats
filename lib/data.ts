@@ -1,11 +1,11 @@
 import { Restaurant, Category, Voucher, TimeSlot, HeroSlide, MenuCategory } from './types';
 
 export const categories: Category[] = [
-  { id: 'street-food', name: 'Hẹn hò vỉa hè', icon: '🍜' },
+  { id: 'street-food', name: 'Hẹn hò "vỉa hè"', icon: '🍜' },
   { id: 'luxury', name: 'Hẹn hò sang trọng', icon: '🍷' },
-  { id: 'private', name: 'Không gian riêng tư', icon: '🕯️' },
-  { id: 'view', name: 'View ngắm cảnh', icon: '🌆' },
-  { id: 'coffee', name: 'Cà phê lãng mạn', icon: '☕' },
+  // { id: 'private', name: 'Không gian riêng tư', icon: '🕯️' },
+  // { id: 'view', name: 'View ngắm cảnh', icon: '🌆' },
+  // { id: 'coffee', name: 'Cà phê lãng mạn', icon: '☕' },
 ];
 
 export const heroSlides: HeroSlide[] = [

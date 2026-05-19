@@ -9,25 +9,25 @@ import { RestaurantCard } from '@/components/restaurant-card';
 import { VoucherStrip } from '@/components/voucher-strip';
 import { Footer } from '@/components/footer';
 import { BookingModal } from '@/components/booking-modal';
-import { restaurants } from '@/lib/data';
+// 👇 Nhớ import thêm categories
+import { restaurants, categories } from '@/lib/data'; 
 import { Restaurant } from '@/lib/types';
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('vietnamese');
+  // 👇 Đổi giá trị mặc định thành 'street-food'
+  const [selectedCategory, setSelectedCategory] = useState<string>('street-food');
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
 
-  const filteredRestaurants =
-    selectedCategory === 'all'
-      ? restaurants
-      : restaurants.filter((r) =>
-          r.cuisine.toLowerCase().includes(
-            selectedCategory === 'vietnamese' ? 'vietnam' : selectedCategory
-          )
-        );
+  // 👇 Lấy ra object danh mục đang được chọn (để lấy được tên tiếng Việt)
+  const activeCategory = categories.find(c => c.id === selectedCategory);
+
+  // 👇 Lọc nhà hàng theo tên danh mục (cuisine === name)
+  const filteredRestaurants = restaurants.filter(
+    (r) => r.cuisine === activeCategory?.name
+  );
 
   const featuredRestaurants = restaurants.slice(0, 2);
-  const remainingRestaurants = restaurants.slice(2);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -85,21 +85,30 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="mb-6 md:mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                All Restaurants
+                {/* 👇 Hiển thị tên danh mục đang chọn */}
+                {activeCategory?.name || 'Restaurants'} 
               </h2>
               <p className="text-muted-foreground text-sm md:text-base">
-                Browse all available dining options
+                Browse available dining options
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {remainingRestaurants.map((restaurant) => (
-                <RestaurantCard
-                  key={restaurant.id}
-                  restaurant={restaurant}
-                />
-              ))}
-            </div>
+            {/* 👇 Hiển thị các nhà hàng đã được filter, thay vì remainingRestaurants */}
+            {filteredRestaurants.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredRestaurants.map((restaurant) => (
+                  <RestaurantCard
+                    key={restaurant.id}
+                    restaurant={restaurant}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-xl border border-border">
+                <p className="text-lg font-medium text-foreground mb-2">Chưa có nhà hàng nào</p>
+                <p className="text-muted-foreground">Chúng tôi đang cập nhật thêm các địa điểm cho mục này!</p>
+              </div>
+            )}
           </div>
         </section>
 
