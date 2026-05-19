@@ -23,22 +23,22 @@ const reviews = [
     id: 1,
     author: 'Nguyễn Minh Anh',
     rating: 5,
-    date: '2 weeks ago',
-    comment: 'Amazing dinner for our anniversary! The service was impeccable and the food was delicious.',
+    date: '2 tuần trước',
+    comment: 'Bữa tối tuyệt vời cho ngày kỷ niệm của chúng tôi! Dịch vụ hoàn hảo và đồ ăn rất ngon.',
   },
   {
     id: 2,
     author: 'Trần Thị Linh',
     rating: 4,
-    date: '1 month ago',
-    comment: 'Great ambiance and friendly staff. Food was good but a bit pricey.',
+    date: '1 tháng trước',
+    comment: 'Không gian đẹp và nhân viên thân thiện. Đồ ăn ngon nhưng giá hơi cao một chút.',
   },
   {
     id: 3,
     author: 'Phạm Quốc Anh',
     rating: 5,
-    date: '2 months ago',
-    comment: 'Perfect place for a romantic date. Highly recommended!',
+    date: '2 tháng trước',
+    comment: 'Địa điểm hoàn hảo cho một buổi hẹn hò lãng mạn. Rất khuyên thử!',
   },
 ];
 
@@ -57,11 +57,11 @@ export default function RestaurantDetailPage({
         <main className="flex-1 container mx-auto px-4 py-12">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-foreground mb-4">
-              Restaurant not found
+              Không tìm thấy nhà hàng
             </h1>
             <Link href="/">
               <Button className="bg-primary hover:bg-accent text-white">
-                Back to Home
+                Về trang chủ
               </Button>
             </Link>
           </div>
@@ -83,27 +83,27 @@ export default function RestaurantDetailPage({
         <section className="bg-white border-b border-border">
           <div className="container mx-auto px-4 py-6">
             <div className="grid grid-cols-2 gap-2 h-64 md:h-80">
-  {/* Ảnh 1: Bên trái */}
-  <div className="relative rounded-l-xl overflow-hidden group cursor-pointer">
-    <Image 
-      src={restaurant.gallery?.[0] ?? restaurant.image} 
-      fill 
-      className="object-cover group-hover:scale-105 transition-transform duration-500" 
-      alt="gallery-0" 
-    />
-  </div>
+              {/* Ảnh 1: Bên trái */}
+              <div className="relative rounded-l-xl overflow-hidden group cursor-pointer">
+                <Image 
+                  src={restaurant.gallery?.[0] ?? restaurant.image} 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                  alt="gallery-0" 
+                />
+              </div>
 
-  {/* Ảnh 2: Bên phải kèm nút Xem tất cả */}
-  <div className="relative rounded-r-xl overflow-hidden group cursor-pointer">
-    <Image 
-      src={restaurant.gallery?.[1] ?? restaurant.image} 
-      fill 
-      className="object-cover group-hover:scale-105 transition-transform duration-500" 
-      alt="gallery-1" 
-    />
-    
-  </div>
-</div>
+              {/* Ảnh 2: Bên phải kèm nút Xem tất cả */}
+              <div className="relative rounded-r-xl overflow-hidden group cursor-pointer">
+                <Image 
+                  src={restaurant.gallery?.[1] ?? restaurant.image} 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                  alt="gallery-1" 
+                />
+                
+              </div>
+            </div>
           </div>
         </section>
 
@@ -114,7 +114,7 @@ export default function RestaurantDetailPage({
               <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
                 <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-xs text-muted-foreground">Hours</p>
+                  <p className="text-xs text-muted-foreground">Giờ mở cửa</p>
                   <p className="font-semibold text-foreground">
                     {restaurant.hours}
                   </p>
@@ -123,7 +123,7 @@ export default function RestaurantDetailPage({
               <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-xs text-muted-foreground">Address</p>
+                  <p className="text-xs text-muted-foreground">Địa chỉ</p>
                   <p className="font-semibold text-foreground text-sm">
                     {restaurant.address}
                   </p>
@@ -132,7 +132,7 @@ export default function RestaurantDetailPage({
               <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-xs text-muted-foreground">Phone</p>
+                  <p className="text-xs text-muted-foreground">Điện thoại</p>
                   <p className="font-semibold text-foreground text-sm">
                     {restaurant.phone}
                   </p>
@@ -146,10 +146,10 @@ export default function RestaurantDetailPage({
                 className="flex-1 bg-primary hover:bg-accent text-white"
                 onClick={() => setBookingModalOpen(true)}
               >
-                Book a Table
+                Đặt Bàn Ngay
               </Button>
               <Button variant="outline" className="flex-1">
-                Call Restaurant
+                Gọi Nhà Hàng
               </Button>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function RestaurantDetailPage({
         {/* Description */}
         <section className="bg-white border-b border-border">
           <div className="container mx-auto px-4 py-8 md:py-12">
-            <h2 className="text-2xl font-bold text-foreground mb-4">About</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-4">Giới thiệu</h2>
             <p className="text-foreground leading-relaxed">
               {restaurant.description}
             </p>
@@ -182,13 +182,51 @@ export default function RestaurantDetailPage({
         )}
 
         {/* Menu section */}
-        
+        <section className="bg-muted/30">
+          <div className="container mx-auto px-4 py-8 md:py-12">
+            <h2 className="text-2xl font-bold mb-6">Thực đơn nổi bật</h2>
+
+            {/* Category tab pills */}
+            <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+              {menuCategories.map((cat) => (
+                <button key={cat.id}
+                  onClick={() => setActiveMenuTab(cat.id)}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors
+                    ${activeMenuTab === cat.id
+                      ? 'bg-primary text-white'
+                      : 'bg-white border border-border text-muted-foreground hover:border-primary'}`}>
+                  {cat.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Menu items grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {menuCategories
+                .find((c) => c.id === activeMenuTab)
+                ?.items.map((item) => (
+                  <div key={item.id} className="bg-white rounded-xl overflow-hidden border border-border hover:shadow-md transition-shadow">
+                    <div className="relative h-36">
+                      <Image src={item.image} alt={item.name} fill className="object-cover" />
+                    </div>
+                    <div className="p-3">
+                      <p className="font-semibold text-sm text-foreground line-clamp-1">{item.name}</p>
+                      <p className="text-xs text-muted-foreground line-clamp-2 mt-0.5">{item.description}</p>
+                      <p className="text-primary font-bold text-sm mt-2">
+                        {(item.price / 1000).toFixed(0)}k VNĐ
+                      </p>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </section>
 
         {/* Reviews */}
         <section className="bg-white border-b border-border">
           <div className="container mx-auto px-4 py-8 md:py-12">
             <h2 className="text-2xl font-bold text-foreground mb-6">
-              Customer Reviews
+              Đánh giá của khách hàng
             </h2>
 
             {/* Rating summary */}
@@ -200,7 +238,7 @@ export default function RestaurantDetailPage({
                     <Star key={i} className={`w-4 h-4 ${i < Math.floor(restaurant.rating) ? 'fill-secondary text-secondary' : 'text-border'}`} />
                   ))}
                 </div>
-                <p className="text-xs text-muted-foreground">{restaurant.reviewCount} reviews</p>
+                <p className="text-xs text-muted-foreground">{restaurant.reviewCount} đánh giá</p>
               </div>
               <div className="flex-1 space-y-1.5">
                 {[5,4,3,2,1].map((star) => (
@@ -260,17 +298,17 @@ export default function RestaurantDetailPage({
         <section className="bg-gradient-to-r from-primary to-accent py-12">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to Dine Here?
+              Sẵn sàng dùng bữa tại đây?
             </h2>
             <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              Book your table now and enjoy a wonderful dining experience at{' '}
+              Đặt bàn ngay bây giờ và tận hưởng trải nghiệm ẩm thực tuyệt vời tại{' '}
               {restaurant.name}
             </p>
             <Button
               className="bg-white text-primary hover:bg-secondary"
               onClick={() => setBookingModalOpen(true)}
             >
-              Reserve Your Table
+              Đặt bàn ngay
             </Button>
           </div>
         </section>

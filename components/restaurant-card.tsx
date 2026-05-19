@@ -116,7 +116,7 @@ export function RestaurantCard({ restaurant, featured }: RestaurantCardProps) {
 
               {/* Book Button */}
               <Button className="w-full bg-primary hover:bg-accent text-white text-sm">
-                Book Table
+                Đặt bàn
               </Button>
             </div>
           </CardContent>

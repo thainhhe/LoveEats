@@ -135,7 +135,7 @@ pnpm start
 The project includes hardcoded sample data for:
 - **6 Restaurants**: Saigon Kitchen, Edo Japan, Bella Italia, Korean BBQ House, Pad Thai Paradise, Sunset Fusion
 - **8 Cuisine Categories**: Vietnamese, Japanese, Italian, Korean, Thai, Fusion, Dessert, Coffee
-- **4 Vouchers**: Valentine Special (20% off), Welcome Bonus (50k off), Lunch Combo (30% off), Free Delivery
+- **4 Vouchers**: Lễ Tình Nhân (20% off), Welcome Bonus (50k off), Lunch Combo (30% off), Free Delivery
 - **9 Time Slots**: 11:00 AM to 9:00 PM with availability status
 
 ## Features Roadmap

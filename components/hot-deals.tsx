@@ -30,7 +30,7 @@ export function HotDeals() {
       <div className="container mx-auto px-4">
         <div className="mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-            Hot Deals Today 🔥
+            Ưu đãi ngay hôm nay 🔥
           </h2>
           <p className="text-muted-foreground text-sm md:text-base">
             Limited time offers you won&apos;t want to miss
@@ -79,7 +79,7 @@ export function HotDeals() {
                           <p className="font-bold text-foreground">{deal.rating} ⭐</p>
                         </div>
                         <Button className="bg-primary hover:bg-accent text-white">
-                          Claim Deal
+                          Nhận ưu đãi
                         </Button>
                       </div>
                     </div>

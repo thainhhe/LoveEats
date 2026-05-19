@@ -151,7 +151,7 @@ export function HeroBanner3D() {
 
           {/* Countdown banner */}
           <div className="inline-block bg-primary/90 backdrop-blur-md text-primary-foreground px-6 py-3 rounded-full font-semibold shadow-lg">
-            Valentine Special: {timeLeft}
+            Lễ Tình Nhân: {timeLeft}
           </div>
 
           {/* CTA Button */}
@@ -159,7 +159,7 @@ export function HeroBanner3D() {
             size="lg"
             className="bg-primary hover:bg-accent text-white mt-4 md:mt-6 shadow-lg hover:shadow-xl transition-all"
           >
-            Book Now
+            Đặt ngay
           </Button>
         </div>
       </div>

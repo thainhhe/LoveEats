@@ -22,7 +22,7 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 ### Homepage
 - Browse featured restaurants
 - View hot deals carousel
-- Check Valentine special countdown
+- Check Lễ Tình Nhân countdown
 - Copy voucher codes
 - Search or filter by cuisine
 

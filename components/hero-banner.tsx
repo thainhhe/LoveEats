@@ -17,12 +17,12 @@ interface BannerSlide {
 const slides: BannerSlide[] = [
   {
     id: 'valentine',
-    title: 'Valentine Special',
+    title: 'Lễ Tình Nhân',
     subtitle: 'Get 20% off romantic dinners',
     bgColor: 'bg-primary/10',
     textColor: 'text-primary',
     showCountdown: true,
-    cta: 'Book Now',
+    cta: 'Đặt ngay',
   },
   {
     id: 'new-users',

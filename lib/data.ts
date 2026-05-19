@@ -1,91 +1,89 @@
 import { Restaurant, Category, Voucher, TimeSlot, HeroSlide, MenuCategory } from './types';
 
 export const categories: Category[] = [
-  { id: 'street-food', name: 'Hẹn hò "vỉa hè"', icon: '🍜' },
+  { id: 'street-food', name: 'Hẹn hò vỉa hè', icon: '🍜' },
   { id: 'luxury', name: 'Hẹn hò sang trọng', icon: '🍷' },
-  // { id: 'private', name: 'Không gian riêng tư', icon: '🕯️' },
-  // { id: 'view', name: 'View ngắm cảnh', icon: '🌆' },
-  // { id: 'coffee', name: 'Cà phê lãng mạn', icon: '☕' },
+
 ];
 
 export const heroSlides: HeroSlide[] = [
   {
     id: 'hero-1',
     image: '/images/hero-1.jpg',
-    title: 'Romantic Dining',
-    subtitle: 'Create unforgettable memories with your loved one',
+    title: 'Hẹn hò lãng mạn',
+    subtitle: 'Tạo nên những kỷ niệm khó quên cùng người thương của bạn',
   },
   {
     id: 'hero-2',
     image: '/images/hero-2.jpg',
-    title: 'Sunset Moments',
-    subtitle: 'Experience love under the stars at rooftop venues',
+    title: 'Khoảnh khắc hoàng hôn',
+    subtitle: 'Trải nghiệm tình yêu lãng mạn dưới những vì sao tại không gian sân thượng',
   },
   {
     id: 'hero-3',
     image: '/images/hero-3.jpg',
-    title: 'Culinary Excellence',
-    subtitle: 'Taste the finest cuisines in the most intimate settings',
+    title: 'Tinh hoa ẩm thực',
+    subtitle: 'Thưởng thức những món ăn hảo hạng trong không gian thân mật nhất',
   },
 ];
 
 export const menuCategories: MenuCategory[] = [
   {
     id: 'appetizers',
-    name: 'Appetizers',
+    name: 'Món khai vị',
     items: [
       {
         id: 'app-1',
-        name: 'Spring Rolls',
+        name: 'Nem cuốn tươi',
         price: 45000,
-        description: 'Fresh Vietnamese spring rolls with peanut sauce',
+        description: 'Nem cuốn tươi kiểu Việt Nam thanh mát kèm sốt tương đậu phộng đậm đà',
         image: 'https://images.unsplash.com/photo-1541014741259-de529411b96a?w=400',
       },
       {
         id: 'app-2',
-        name: 'Shrimp Toast',
+        name: 'Bánh mì chiên tôm',
         price: 65000,
-        description: 'Crispy shrimp toast with sweet chili',
+        description: 'Bánh mì tôm chiên giòn rụm ăn kèm với tương ớt ngọt dịu',
         image: 'https://images.unsplash.com/photo-1541014741259-de529411b96a?w=400',
       },
     ],
   },
   {
     id: 'mains',
-    name: 'Main Courses',
+    name: 'Món ăn chính',
     items: [
       {
         id: 'main-1',
-        name: 'Premium Pho',
+        name: 'Phở bò đặc biệt',
         price: 85000,
-        description: 'Slow-cooked beef pho with fresh herbs',
+        description: 'Phở bò nước dùng hầm kỹ từ xương ống chuẩn vị truyền thống kèm rau thơm',
         image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400',
       },
       {
         id: 'main-2',
-        name: 'Grilled Sea Bass',
+        name: 'Cá vược nướng sả chanh',
         price: 125000,
-        description: 'Fresh grilled sea bass with lemongrass',
+        description: 'Cá vược tươi sống nướng thơm lừng hòa quyện cùng hương vị sả và chanh',
         image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400',
       },
     ],
   },
   {
     id: 'desserts',
-    name: 'Desserts',
+    name: 'Món tráng miệng',
     items: [
       {
         id: 'dessert-1',
-        name: 'Mango Sticky Rice',
+        name: 'Xôi xoài dừa',
         price: 35000,
-        description: 'Sweet sticky rice with fresh mango',
+        description: 'Xôi nếp dẻo thơm cốt dừa ăn kèm với xoài chín ngọt lịm',
         image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400',
       },
       {
         id: 'dessert-2',
-        name: 'Chocolate Lava Cake',
+        name: 'Bánh Chocolate Lava',
         price: 45000,
-        description: 'Warm chocolate cake with vanilla ice cream',
+        description: 'Bánh ngọt chocolate nhân tan chảy ấm nóng kèm một viên kem vani',
         image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400',
       },
     ],
@@ -94,7 +92,7 @@ export const menuCategories: MenuCategory[] = [
 
 const defaultGallery = [
   '/images/bundau.jpg',
-  '/images/menubundau.jpg',
+  '/images/bundau1.jpg',
   'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600',
   'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600',
 ];
@@ -103,12 +101,12 @@ export const restaurants: Restaurant[] = [
   {
     id: 'bun-dau-hang-khay',
     name: 'Bún Đậu Hàng Khay',
-    cuisine: 'Hẹn hò vỉa hè', // <--- Khớp với tên tab "Hẹn hò vỉa hè"
+    cuisine: 'Hẹn hò vỉa hè',
     image: '/images/bundau.jpg',
     gallery: defaultGallery,
     rating: 4.8,
     reviewCount: 342,
-    deliveryTime: '15-25 mins',
+    deliveryTime: '15-25 phút',
     minOrder: 50000,
     tags: ['Bún đậu', 'Phố cổ', 'Dân dã'],
     description: 'Quán bún đậu mắm tôm nức tiếng khu vực phố cổ, không gian vỉa hè dân dã, nhộn nhịp, lý tưởng cho những cặp đôi thích sự giản dị và thoải mái.',
@@ -120,7 +118,7 @@ export const restaurants: Restaurant[] = [
   {
     id: 'french-grill',
     name: 'French Grill - JW Marriott',
-    cuisine: 'Hẹn hò sang trọng', // <--- Khớp với tên tab "Hẹn hò sang trọng"
+    cuisine: 'Hẹn hò sang trọng',
     image: 'https://images.unsplash.com/photo-1553621042-f6e147245754?w=800',
     gallery: defaultGallery,
     rating: 4.9,
@@ -142,7 +140,7 @@ export const restaurants: Restaurant[] = [
     gallery: defaultGallery,
     rating: 4.6,
     reviewCount: 189,
-    deliveryTime: '30-40 mins',
+    deliveryTime: '30-40 phút',
     minOrder: 200000,
     tags: ['Cá hồi', 'Biệt thự Pháp', 'Âu'],
     description: 'Biệt thự Pháp cổ với khu vườn nhỏ xinh xắn và ban công ngắm phố. Chuyên các món Âu kết hợp hương vị Việt trong một không gian kín đáo, riêng tư.',
@@ -159,7 +157,7 @@ export const restaurants: Restaurant[] = [
     gallery: defaultGallery,
     rating: 4.5,
     reviewCount: 820,
-    deliveryTime: '20-30 mins',
+    deliveryTime: '20-30 phút',
     minOrder: 80000,
     tags: ['Bún chả', 'Nổi tiếng', 'Truyền thống'],
     description: 'Thưởng thức bún chả chuẩn vị Hà Nội tại quán ăn từng đón cựu Tổng thống Mỹ Obama. Trải nghiệm ẩm thực hè phố đậm chất thủ đô.',
@@ -183,7 +181,7 @@ export const restaurants: Restaurant[] = [
     phone: '024 7777 8888',
     address: '38 Gia Ngư, Quận Hoàn Kiếm, Hà Nội',
     hours: '15:00 - 23:00',
-    specials: ['Happy hour 16:00 - 18:30: Giảm 20% menu nước'],
+    specials: ['Happy hour 16:00 - 18:30: Giảm 20% nước'],
   },
   {
     id: 'el-gaucho-tay-ho',
@@ -193,14 +191,14 @@ export const restaurants: Restaurant[] = [
     gallery: defaultGallery,
     rating: 4.8,
     reviewCount: 498,
-    deliveryTime: '40-50 mins',
+    deliveryTime: '40-50 phút',
     minOrder: 500000,
     tags: ['Steak', 'Bò nhập khẩu', 'Tây Hồ'],
     description: 'Nhà hàng bít tết trứ danh với những phần thịt bò nhập khẩu hảo hạng nhất, không gian ấm cúng, sang trọng nằm ngay ven Hồ Tây lộng gió.',
     phone: '024 2222 3333',
     address: 'Số 2 Tây Hồ, Quảng An, Quận Tây Hồ, Hà Nội',
     hours: '11:00 - 23:30',
-    specials: ['Tặng kèm tráng miệng cho bàn 2 người'],
+    specials: ['Tặng kèm tráng miệng cho cặp đôi'],
   },
 ];
 
@@ -208,37 +206,37 @@ export const vouchers: Voucher[] = [
   {
     id: 'valentine-2026',
     code: 'LOVE2026',
-    title: 'Valentine Special',
-    description: 'Get 20% off your romantic dinner. Valid until Feb 14, 2026.',
-    discount: '20% OFF',
-    validity: 'Until 14 Feb',
+    title: 'Ưu đãi Valentine',
+    description: 'Giảm 20% cho bữa tối lãng mạn của bạn. Có giá trị đến hết ngày 14 tháng 2 năm 2026.',
+    discount: 'GIẢM 20%',
+    validity: 'Đến 14 Th2',
     icon: '💝',
   },
   {
     id: 'welcome-new',
     code: 'WELCOME50K',
-    title: 'Welcome Bonus',
-    description: 'First order discount. Get 50,000 VND off.',
-    discount: '50K OFF',
-    validity: 'Until 28 Feb',
+    title: 'Quà tặng thành viên mới',
+    description: 'Ưu đãi cho lượt đặt bàn đầu tiên. Nhận ngay voucher giảm 50.000 VNĐ.',
+    discount: 'GIẢM 50K',
+    validity: 'Đến 28 Th2',
     icon: '🎉',
   },
   {
     id: 'lunch-combo',
     code: 'LUNCH30',
-    title: 'Lunch Combo Deal',
-    description: 'Save big on lunch orders between 11AM - 2PM.',
-    discount: '30% OFF',
-    validity: 'Daily 11-14h',
+    title: 'Combo Trưa Tiết Kiệm',
+    description: 'Tiết kiệm lớn khi đặt bàn dùng bữa trưa trong khung giờ từ 11:00 AM - 2:00 PM.',
+    discount: 'GIẢM 30%',
+    validity: 'Hàng ngày 11h-14h',
     icon: '🍽️',
   },
   {
     id: 'free-delivery',
     code: 'FREEDELIV',
-    title: 'Free Delivery',
-    description: 'Orders above 200,000 VND get free delivery.',
+    title: 'Miễn Phí Giao Hàng',
+    description: 'Ưu đãi miễn phí vận chuyển cho các hóa đơn đặt món trên 200.000 VNĐ.',
     discount: 'FREE',
-    validity: 'Always',
+    validity: 'Vô thời hạn',
     icon: '🚗',
   },
 ];
@@ -246,11 +244,11 @@ export const vouchers: Voucher[] = [
 export const timeSlots: TimeSlot[] = [
   { id: 'slot-11', time: '11:00 AM', available: true },
   { id: 'slot-12', time: '12:00 PM', available: true },
-  { id: 'slot-13', time: '1:00 PM', available: false },
-  { id: 'slot-14', time: '2:00 PM', available: true },
-  { id: 'slot-17', time: '5:00 PM', available: true },
-  { id: 'slot-18', time: '6:00 PM', available: false },
-  { id: 'slot-19', time: '7:00 PM', available: true },
-  { id: 'slot-20', time: '8:00 PM', available: true },
-  { id: 'slot-21', time: '9:00 PM', available: true },
+  { id: 'slot-13', time: '01:00 PM', available: false },
+  { id: 'slot-14', time: '02:00 PM', available: true },
+  { id: 'slot-17', time: '05:00 PM', available: true },
+  { id: 'slot-18', time: '06:00 PM', available: false },
+  { id: 'slot-19', time: '07:00 PM', available: true },
+  { id: 'slot-20', time: '08:00 PM', available: true },
+  { id: 'slot-21', time: '09:00 PM', available: true },
 ];

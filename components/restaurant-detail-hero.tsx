@@ -104,7 +104,7 @@ export function RestaurantDetailHero({ restaurant }: RestaurantDetailHeroProps) 
                   </div>
                   <span className="font-bold text-lg">{restaurant.rating}</span>
                   <span className="text-muted-foreground">
-                    ({restaurant.reviewCount} reviews)
+                    ({restaurant.reviewCount} nhận xét)
                   </span>
                 </div>
               </div>
