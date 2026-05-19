@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Star, MapPin, Clock, Phone } from 'lucide-react';
 import { Header } from '@/components/header';
 import { RestaurantDetailHero } from '@/components/restaurant-detail-hero';
@@ -9,13 +10,12 @@ import { BookingModal } from '@/components/booking-modal';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { restaurants } from '@/lib/data';
-import { Restaurant } from '@/lib/types';
+import { restaurants, menuCategories } from '@/lib/data';
 
 interface RestaurantDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 const reviews = [
@@ -42,38 +42,13 @@ const reviews = [
   },
 ];
 
-const menuCategories = [
-  {
-    name: 'Appetizers',
-    items: [
-      'Spring Rolls - 120k',
-      'Dumpling Sampler - 150k',
-      'Shrimp Toast - 140k',
-    ],
-  },
-  {
-    name: 'Main Courses',
-    items: [
-      'Premium Pho - 180k',
-      'Grilled Salmon - 250k',
-      'Special Ramen Bowl - 220k',
-    ],
-  },
-  {
-    name: 'Desserts',
-    items: [
-      'Mango Sticky Rice - 90k',
-      'Tiramisu - 85k',
-      'Green Tea Cheesecake - 95k',
-    ],
-  },
-];
-
 export default function RestaurantDetailPage({
   params,
 }: RestaurantDetailPageProps) {
-  const restaurant = restaurants.find((r) => r.id === params.id);
+  const { id } = use(params);
+  const restaurant = restaurants.find((r) => r.id === id);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [activeMenuTab, setActiveMenuTab] = useState('appetizers');
 
   if (!restaurant) {
     return (
@@ -103,6 +78,30 @@ export default function RestaurantDetailPage({
       <main className="flex-1">
         {/* Parallax Hero */}
         <RestaurantDetailHero restaurant={restaurant} />
+
+        {/* Photo Gallery */}
+        <section className="bg-white border-b border-border">
+          <div className="container mx-auto px-4 py-6">
+            <div className="grid grid-cols-4 gap-2 h-64 md:h-80">
+              {/* First image: large, spans 2 rows and 2 cols */}
+              <div className="col-span-2 row-span-2 relative rounded-l-xl overflow-hidden group cursor-pointer">
+                <Image src={restaurant.gallery?.[0] ?? restaurant.image} fill className="object-cover group-hover:scale-105 transition-transform duration-500" alt="gallery-0" />
+              </div>
+              {/* 3 smaller images on the right */}
+              {[1, 2, 3].map((i) => (
+                <div key={i} className={`relative overflow-hidden cursor-pointer group ${i === 1 ? 'rounded-tr-xl' : ''} ${i === 3 ? 'rounded-br-xl' : ''}`}>
+                  <Image src={restaurant.gallery?.[i] ?? restaurant.image} fill className="object-cover group-hover:scale-105 transition-transform duration-500" alt={`gallery-${i}`} />
+                  {/* Last tile overlay: "See all photos" */}
+                  {i === 3 && (
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm">📷 See all</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Key Info */}
         <div className="bg-white border-b border-border">
@@ -162,33 +161,24 @@ export default function RestaurantDetailPage({
           </div>
         </section>
 
-        {/* Menu */}
-        <section className="bg-muted/30">
-          <div className="container mx-auto px-4 py-8 md:py-12">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Menu</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {menuCategories.map((category) => (
-                <Card key={category.name}>
-                  <CardContent className="pt-6">
-                    <h3 className="font-bold text-lg text-foreground mb-4">
-                      {category.name}
-                    </h3>
-                    <ul className="space-y-3">
-                      {category.items.map((item, idx) => (
-                        <li
-                          key={idx}
-                          className="flex justify-between text-sm text-foreground"
-                        >
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
+        {/* Specials/Offers badge strip */}
+        {restaurant.specials && restaurant.specials.length > 0 && (
+          <div className="bg-primary/5 border-y border-primary/10">
+            <div className="container mx-auto px-4 py-4">
+              <div className="flex gap-3 overflow-x-auto pb-1">
+                {restaurant.specials.map((special, i) => (
+                  <div key={i} className="flex items-center gap-2 bg-white border border-primary/20 rounded-full px-4 py-2 whitespace-nowrap flex-shrink-0">
+                    <span className="text-primary text-xs">🎁</span>
+                    <span className="text-sm text-foreground font-medium">{special}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </section>
+        )}
+
+        {/* Menu section */}
+        
 
         {/* Reviews */}
         <section className="bg-white border-b border-border">
@@ -196,12 +186,44 @@ export default function RestaurantDetailPage({
             <h2 className="text-2xl font-bold text-foreground mb-6">
               Customer Reviews
             </h2>
+
+            {/* Rating summary */}
+            <div className="flex items-center gap-4 mb-8 p-4 bg-muted/50 rounded-xl">
+              <div className="text-center">
+                <p className="text-5xl font-bold text-foreground">{restaurant.rating}</p>
+                <div className="flex gap-0.5 justify-center my-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`w-4 h-4 ${i < Math.floor(restaurant.rating) ? 'fill-secondary text-secondary' : 'text-border'}`} />
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground">{restaurant.reviewCount} reviews</p>
+              </div>
+              <div className="flex-1 space-y-1.5">
+                {[5,4,3,2,1].map((star) => (
+                  <div key={star} className="flex items-center gap-2 text-xs">
+                    <span className="w-3 text-muted-foreground">{star}</span>
+                    <Star className="w-3 h-3 fill-secondary text-secondary" />
+                    <div className="flex-1 bg-border rounded-full h-1.5">
+                      <div className="bg-secondary h-1.5 rounded-full"
+                        style={{ width: star === 5 ? '65%' : star === 4 ? '20%' : star === 3 ? '10%' : '5%' }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <div className="space-y-4">
               {reviews.map((review) => (
                 <Card key={review.id}>
                   <CardContent className="pt-6">
-                    <div className="flex items-start justify-between mb-3">
-                      <div>
+                    <div className="flex items-start gap-3 mb-3">
+                      {/* Avatar with initials */}
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <span className="text-primary font-semibold text-sm">
+                          {review.author.split(' ').map((n) => n[0]).join('').slice(0, 2)}
+                        </span>
+                      </div>
+                      <div className="flex-1">
                         <p className="font-semibold text-foreground">
                           {review.author}
                         </p>

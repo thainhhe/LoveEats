@@ -36,6 +36,7 @@ export interface Restaurant {
   specials?: string[];
   menu?: MenuCategory[];
   heroImage?: string;
+  gallery?: string[]; // Added gallery field
 }
 
 export interface Voucher {
