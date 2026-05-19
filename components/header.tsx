@@ -20,7 +20,7 @@ export function Header() {
           {/* Location */}
           <div className="hidden md:flex items-center gap-2 text-sm text-foreground">
             <MapPin className="w-4 h-4 text-primary" />
-            <span>Ho Chi Minh City</span>
+            <span>Ha Noi Capital</span>
           </div>
 
           {/* Right Actions */}

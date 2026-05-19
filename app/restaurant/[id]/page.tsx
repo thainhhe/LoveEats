@@ -82,24 +82,28 @@ export default function RestaurantDetailPage({
         {/* Photo Gallery */}
         <section className="bg-white border-b border-border">
           <div className="container mx-auto px-4 py-6">
-            <div className="grid grid-cols-4 gap-2 h-64 md:h-80">
-              {/* First image: large, spans 2 rows and 2 cols */}
-              <div className="col-span-2 row-span-2 relative rounded-l-xl overflow-hidden group cursor-pointer">
-                <Image src={restaurant.gallery?.[0] ?? restaurant.image} fill className="object-cover group-hover:scale-105 transition-transform duration-500" alt="gallery-0" />
-              </div>
-              {/* 3 smaller images on the right */}
-              {[1, 2, 3].map((i) => (
-                <div key={i} className={`relative overflow-hidden cursor-pointer group ${i === 1 ? 'rounded-tr-xl' : ''} ${i === 3 ? 'rounded-br-xl' : ''}`}>
-                  <Image src={restaurant.gallery?.[i] ?? restaurant.image} fill className="object-cover group-hover:scale-105 transition-transform duration-500" alt={`gallery-${i}`} />
-                  {/* Last tile overlay: "See all photos" */}
-                  {i === 3 && (
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                      <span className="text-white font-semibold text-sm">📷 See all</span>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+            <div className="grid grid-cols-2 gap-2 h-64 md:h-80">
+  {/* Ảnh 1: Bên trái */}
+  <div className="relative rounded-l-xl overflow-hidden group cursor-pointer">
+    <Image 
+      src={restaurant.gallery?.[0] ?? restaurant.image} 
+      fill 
+      className="object-cover group-hover:scale-105 transition-transform duration-500" 
+      alt="gallery-0" 
+    />
+  </div>
+
+  {/* Ảnh 2: Bên phải kèm nút Xem tất cả */}
+  <div className="relative rounded-r-xl overflow-hidden group cursor-pointer">
+    <Image 
+      src={restaurant.gallery?.[1] ?? restaurant.image} 
+      fill 
+      className="object-cover group-hover:scale-105 transition-transform duration-500" 
+      alt="gallery-1" 
+    />
+    
+  </div>
+</div>
           </div>
         </section>
 
