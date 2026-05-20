@@ -197,27 +197,7 @@ export const restaurants: Restaurant[] = [
     hours: '10:00 - 22:30',
     specials: [],
   },
-  {
-    id: 'miso-nhat-ban',
-    name: 'Miso- Đồ ăn Nhật Bản',
-    cuisine: 'Hẹn hò vỉa hè',
-    image: '/images/Hẹn hò vỉa hè/Miso- Đồ ăn Nhật Bản/Không gian+ đồ ăn/2024-08-08.jpg',
-    gallery: [
-      '/images/Hẹn hò vỉa hè/Miso- Đồ ăn Nhật Bản/Không gian+ đồ ăn/2024-08-08.jpg',
-      '/images/Hẹn hò vỉa hè/Miso- Đồ ăn Nhật Bản/Không gian+ đồ ăn/2025-06-07.jpg',
-      '/images/Hẹn hò vỉa hè/Miso- Đồ ăn Nhật Bản/Không gian+ đồ ăn/unnamed (1).png',
-    ],
-    rating: 4.6,
-    reviewCount: 180,
-    deliveryTime: '25-35 phút',
-    minOrder: 100000,
-    tags: ['Món Nhật', 'Sushi', 'Sashimi'],
-    description: 'Đồ ăn Nhật Bản tươi ngon, chất lượng với mức giá bình dân trong không gian mộc mạc, gần gũi.',
-    phone: '091 234 5678',
-    address: 'Hà Nội',
-    hours: '10:00 - 22:00',
-    specials: [],
-  },
+
   {
     id: 'pho-lqs',
     name: 'Phở LQS (BD)',
@@ -302,27 +282,7 @@ export const restaurants: Restaurant[] = [
     hours: '18:00 - 23:00',
     specials: [],
   },
-  {
-    id: 'lau-phan',
-    name: 'Lẩu Phan',
-    cuisine: 'Hẹn hò sang trọng',
-    image: '/images/Hẹn hò sang trọng/Lẩu Phan/Không gian+ đồ ăn/lau-phan-3.jpg',
-    gallery: [
-      '/images/Hẹn hò sang trọng/Lẩu Phan/Không gian+ đồ ăn/lau-phan-3.jpg',
-      '/images/Hẹn hò sang trọng/Lẩu Phan/Không gian+ đồ ăn/lau-phan-dao-duy-anh-11.webp',
-      '/images/Hẹn hò sang trọng/Lẩu Phan/menu/menu-đồ-uống-Phan.jpg',
-    ],
-    rating: 4.5,
-    reviewCount: 1200,
-    deliveryTime: 'Không giao hàng',
-    minOrder: 300000,
-    tags: ['Lẩu bò Úc', 'Buffet', 'Nổi tiếng'],
-    description: 'Thương hiệu lẩu bò Úc ngon trứ danh với không gian lịch sự, sang trọng.',
-    phone: '1900 2808',
-    address: 'Hà Nội',
-    hours: '11:00 - 22:30',
-    specials: [],
-  },
+
   {
     id: 'two-chefs',
     name: 'Two Chef’s Tonkatsu & Mau (ST)',
@@ -344,27 +304,7 @@ export const restaurants: Restaurant[] = [
     hours: '10:30 - 21:30',
     specials: [],
   },
-  {
-    id: 'vica-hotpot',
-    name: 'Vica HotPot',
-    cuisine: 'Hẹn hò sang trọng',
-    image: '/images/Hẹn hò sang trọng/Vica HotPot/Ko gian+ đồ ăn/images (2).jpeg',
-    gallery: [
-      '/images/Hẹn hò sang trọng/Vica HotPot/Ko gian+ đồ ăn/images (2).jpeg',
-      '/images/Hẹn hò sang trọng/Vica HotPot/Ko gian+ đồ ăn/vica-hotpot-1-300-4204822972549.webp',
-      '/images/Hẹn hò sang trọng/Vica HotPot/Menu/vica-hotpot-menu-2.png',
-    ],
-    rating: 4.5,
-    reviewCount: 310,
-    deliveryTime: 'Không giao hàng',
-    minOrder: 400000,
-    tags: ['Lẩu', 'Cao cấp', 'Rộng rãi'],
-    description: 'Nhà hàng buffet lẩu cao cấp với đủ loại đồ nhúng tươi ngon và không gian thiết kế ấn tượng.',
-    phone: '091 999 8888',
-    address: 'Hà Nội',
-    hours: '10:00 - 22:30',
-    specials: [],
-  },
+
 ];
 
 export const vouchers: Voucher[] = [
