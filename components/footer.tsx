@@ -13,8 +13,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Heart className="w-5 h-5 fill-white" />
-              <span className="font-bold text-lg">LoveEats</span>
+              <img src="/images/logobrand.jfif" alt="Brand Logo" className="w-12 h-12 object-cover rounded-lg" />
             </div>
             <p className="text-sm opacity-80">
               Making romantic dining experiences more accessible to everyone.

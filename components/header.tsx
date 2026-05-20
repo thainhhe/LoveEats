@@ -11,10 +11,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Heart className="w-5 h-5 text-white fill-white" />
-            </div>
-            <span className="hidden sm:inline font-bold text-lg text-primary">LoveEats</span>
+            <img src="/images/logobrand.jfif" alt="Logo" className="w-16 h-16 object-cover rounded-lg" />
           </Link>
 
           {/* Location */}

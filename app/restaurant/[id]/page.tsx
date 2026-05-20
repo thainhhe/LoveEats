@@ -181,46 +181,7 @@ export default function RestaurantDetailPage({
           </div>
         )}
 
-        {/* Menu section */}
-        <section className="bg-muted/30">
-          <div className="container mx-auto px-4 py-8 md:py-12">
-            <h2 className="text-2xl font-bold mb-6">Thực đơn nổi bật</h2>
 
-            {/* Category tab pills */}
-            <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-              {menuCategories.map((cat) => (
-                <button key={cat.id}
-                  onClick={() => setActiveMenuTab(cat.id)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors
-                    ${activeMenuTab === cat.id
-                      ? 'bg-primary text-white'
-                      : 'bg-white border border-border text-muted-foreground hover:border-primary'}`}>
-                  {cat.name}
-                </button>
-              ))}
-            </div>
-
-            {/* Menu items grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {menuCategories
-                .find((c) => c.id === activeMenuTab)
-                ?.items.map((item) => (
-                  <div key={item.id} className="bg-white rounded-xl overflow-hidden border border-border hover:shadow-md transition-shadow">
-                    <div className="relative h-36">
-                      <Image src={item.image} alt={item.name} fill className="object-cover" />
-                    </div>
-                    <div className="p-3">
-                      <p className="font-semibold text-sm text-foreground line-clamp-1">{item.name}</p>
-                      <p className="text-xs text-muted-foreground line-clamp-2 mt-0.5">{item.description}</p>
-                      <p className="text-primary font-bold text-sm mt-2">
-                        {(item.price / 1000).toFixed(0)}k VNĐ
-                      </p>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </section>
 
         {/* Reviews */}
         <section className="bg-white border-b border-border">

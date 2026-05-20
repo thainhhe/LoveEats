@@ -1,15 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { restaurants } from '@/lib/data';
+import { Restaurant } from '@/lib/types';
 
 export function HotDeals() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [deals, setDeals] = useState<Restaurant[]>([]);
 
-  const deals = restaurants.filter(r => r.specials && r.specials.length > 0);
+  useEffect(() => {
+    const categoriesList = ['Hẹn hò vỉa hè', 'Hẹn hò sang trọng'];
+    let selectedDeals: Restaurant[] = [];
+    
+    categoriesList.forEach(category => {
+      const items = restaurants.filter(r => r.cuisine === category);
+      const shuffled = [...items].sort(() => 0.5 - Math.random());
+      selectedDeals = [...selectedDeals, ...shuffled.slice(0, 3)];
+    });
+    
+    setDeals(selectedDeals);
+  }, []);
 
   const handleScroll = (direction: 'left' | 'right') => {
     const container = document.getElementById('deals-container');
@@ -57,11 +71,9 @@ export function HotDeals() {
               <div key={deal.id} className="flex-shrink-0 w-full sm:w-80">
                 <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200">
                   <CardContent className="p-0">
-                    {/* Background Color */}
-                    <div className="h-32 bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
-                      <div className="absolute inset-0 opacity-30 text-6xl flex items-center justify-center">
-                        🎉
-                      </div>
+                    {/* Background Image */}
+                    <div className="h-32 relative overflow-hidden bg-muted">
+                      <Image src={deal.image} alt={deal.name} fill className="object-cover" />
                     </div>
 
                     {/* Content */}

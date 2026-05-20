@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';
 import { HeroBanner3D } from '@/components/hero-banner-3d';
 import { CategoryNav } from '@/components/category-nav';
@@ -25,8 +25,24 @@ export default function Home() {
     (r) => r.cuisine === activeCategory?.name
   );
 
-  // Lấy 2 nhà hàng đầu tiên làm nhà hàng nổi bật
-  const featuredRestaurants = restaurants.slice(0, 2);
+  const [randomLux, setRandomLux] = useState<Restaurant[]>([]);
+
+  useEffect(() => {
+    if (activeCategory?.name === 'Hẹn hò sang trọng') {
+      const luxItems = restaurants.filter(r => r.cuisine === 'Hẹn hò sang trọng');
+      const shuffled = [...luxItems].sort(() => 0.5 - Math.random());
+      setRandomLux(shuffled.slice(0, 2));
+    }
+  }, [activeCategory]);
+
+  let featuredRestaurants: Restaurant[] = [];
+  if (activeCategory?.name === 'Hẹn hò vỉa hè') {
+    featuredRestaurants = restaurants.filter(r => r.id === 'bun-dau-hang-khay' || r.id === 'pho-lqs');
+  } else if (activeCategory?.name === 'Hẹn hò sang trọng') {
+    featuredRestaurants = randomLux.length > 0 ? randomLux : filteredRestaurants.slice(0, 2);
+  } else {
+    featuredRestaurants = filteredRestaurants.slice(0, 2);
+  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
